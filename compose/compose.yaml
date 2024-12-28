@@ -1,0 +1,18 @@
+services:
+  testdb:
+    build:
+      context: .
+      dockerfile: MySQLImage
+    ports:
+      - 3308:3306
+      - 33080:33060
+
+  php:
+    image: php:apache
+    ports:
+      - 80:80
+    volumes:
+      - ./app:/var/www/html/
+
+# volumes:
+  # mongo-data:

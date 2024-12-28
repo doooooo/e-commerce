@@ -1,0 +1,20 @@
+GRANT ALL PRIVILEGES ON *.* TO 'springstudent'@'%';
+FLUSH PRIVILEGES;
+CREATE DATABASE testdb;
+
+USE testdb;
+CREATE TABLE PRODUCT (
+  `ID` int NOT NULL,
+  `Category` varchar(45) DEFAULT NULL,
+  `NAME` varchar(150) DEFAULT NULL,
+  `Price` DECIMAL(10,2) NOT NULL
+);
+
+INSERT INTO PRODUCT
+VALUES (1, 'Sweats', 'Choco 1', 12.4);
+
+INSERT INTO PRODUCT
+VALUES (2, 'Sweats', 'Chips', 15.0);
+
+INSERT INTO PRODUCT
+VALUES (3, 'Meat', 'Steak', 200.50);

@@ -1,0 +1,7 @@
+FROM mysql:latest
+ENV MYSQL_ROOT_PASSWORD=password MYSQL_USER=springstudent MYSQL_PASSWORD=springstudent
+
+COPY init.sql /docker-entrypoint-initdb.d/
+
+EXPOSE 3306
+EXPOSE 33060
