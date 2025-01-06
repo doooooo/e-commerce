@@ -1,4 +1,13 @@
-FROM php:7
-# RUN docker-php-ext-install mysqli
-RUN apt-get update && apt-get install -y && docker-php-ext-install mysqli && docker-php-ext-enable mysqli
+FROM php:7-apache
+# Install dependencies and enable MySQL extensions
+RUN docker-php-ext-install pdo pdo_mysql mysqli && \
+    docker-php-ext-enable pdo pdo_mysql mysqli
+
+# Set working directory
+WORKDIR /var/www/html
+
+# Ensure the Apache server runs on container start
+CMD ["apache2-foreground"]
+
+# Expose port 80 for web traffic
 EXPOSE 80

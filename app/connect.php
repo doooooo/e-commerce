@@ -1,6 +1,6 @@
 <?php  
-$host = 'localhost';   $user = 'springstudent';  $pass = 'springstudent';    
-$dbname = 'testdb';  $port=3308;
+$host = 'testdb';   $user = 'springstudent';  $pass = 'springstudent';    
+$dbname = 'testdb';  $port=3306;
   
 $conn = mysqli_connect ($host, $user, $pass, $dbname, $port);  
 if(!$conn){  

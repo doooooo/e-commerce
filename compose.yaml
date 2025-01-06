@@ -14,11 +14,15 @@ services:
     # command: sh -c "sudo apt install php-mysqli"
     # command: docker-php-ext-install mysqli
     build:
+      context: .
       dockerfile: PHPImage
     ports:
       - 82:80
     volumes:
       - ./app:/var/www/html/
+    depends_on:
+      - testdb
+    # restart: always
 
 # volumes:
   # mongo-data:
