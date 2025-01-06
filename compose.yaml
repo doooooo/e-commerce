@@ -9,6 +9,12 @@ services:
 
   php:
     image: php:apache
+    # image: php:7
+    # command: docker-php-ext-install pdo pdo_mysql mysqli
+    # command: sh -c "sudo apt install php-mysqli"
+    # command: docker-php-ext-install mysqli
+    # build:
+    #   dockerfile: PHPImage
     ports:
       - 80:80
     volumes:
