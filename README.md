@@ -6,5 +6,5 @@ Developed using php, css, html and docker.
 - Edit the DB schema, to cover all the e-commerce table (file: init.sql)
 
 # How to run:
-- In the project root, type in console: docker-compose up
-- Visit the url in browser: http://localhost/index.php
+- In the project root, type in console: docker-compose up --build
+- Visit the url in browser: http://localhost:82/index.php
