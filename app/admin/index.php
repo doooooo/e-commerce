@@ -4,9 +4,25 @@
 	<link rel="stylesheet" href="../style.css">
 </head>
 <body>
-
+<h1>My first PHP page</h1>
+<div class="topnav">
+  <a class="menu" href="new_product.html">Add Product</a>
+</div>
 <?php include '../connect.php';
-echo "<h1>My first PHP page</h1>";
+//insert product
+if(isset($_POST["add"])) 
+{ 
+	$name = $_POST["name"]; 
+	$category = $_POST["category"];
+	$price = $_POST["price"]; 
+	$insertsql = "INSERT INTO PRODUCT (`Category`, `NAME`, `Price`) VALUES ('$category', '$name', $price);";
+	$retinsert = mysqli_query ($conn, $insertsql);
+
+	if(! $retinsert )
+		echo ("Error adding product" . mysqli_error($conn));
+
+}
+//display all products
 $sql="SELECT * FROM PRODUCT";
 $ret = mysqli_query ($conn, $sql);
 if(mysqli_num_rows($ret) > 0)

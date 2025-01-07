@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin: auto;
 }
 
 .card{
@@ -9,4 +10,30 @@
     border-width: 1px;
     margin: 20px;
     padding: 20px;
+}
+
+.topnav{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu{
+    margin: 10px;
+    padding: 20px;
+    background-color: cornflowerblue;
+    color: white;
+    text-decoration: none;
+}
+
+.back{
+    margin-left: auto;
+    text-align: right;
+}
+
+tr, td{
+    width: 100%;
+}
+
+body{
+    height: 100%;
 }
