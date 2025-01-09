@@ -23,7 +23,13 @@ if(isset($_POST["add"]))
 
 }
 //display all products
-$sql="SELECT * FROM PRODUCT";
+if(isset($GET["category"])) {
+    $category = $GET["category"];
+    $sql="SELECT * FROM PRODUCT where CATEGORY like '$category'";
+}
+else{
+    $sql="SELECT * FROM PRODUCT";
+}
 $ret = mysqli_query ($conn, $sql);
 if(mysqli_num_rows($ret) > 0)
 {
@@ -33,8 +39,8 @@ if(mysqli_num_rows($ret) > 0)
 	{
 		#echo "EMP ID: {$row['id']}<br/> ". "EMP NAME: {$row['id']}<br/>". "EMP salary: {$row['salary']}<br/>";
 		echo "<div class='card'> <ul>";
-		echo "<li>". $row['Category']."</li>";
-		echo "<li>". $row['NAME']."</li>";
+        echo "<li>". $row['NAME']."</li>";
+		echo "<li><a href='index.php?category=".$row['Category']."'>".$row['Category']."</a></li>";
 		echo "<li>". $row['Price']."</li>";
 		echo "</ul></div>";
 	}
