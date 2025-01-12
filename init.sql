@@ -35,29 +35,29 @@ CREATE TABLE ADMIN (
   `PASSWORD` varchar(100) NOT NULL
 );
 
-INSERT INTO PRODUCT (`Category`, `NAME`, `Price`)
-VALUES ('Candy', 'Choco 1', 12.4);
+INSERT INTO PRODUCT (`Category`, `NAME`, `Price`, `Photo`)
+VALUES ('Candy', 'Choco 1', 12.4, 'choco1.avif');
 
-INSERT INTO PRODUCT (`Category`, `NAME`, `Price`)
-VALUES ('Candy', 'Choco 2', 20.5);
+INSERT INTO PRODUCT (`Category`, `NAME`, `Price`, `Photo`)
+VALUES ('Candy', 'Choco 2', 20.5, 'choco2.avif');
 
-INSERT INTO PRODUCT (`Category`, `NAME`, `Price`)
-VALUES ('Snacks', 'Chips', 15.0);
+INSERT INTO PRODUCT (`Category`, `NAME`, `Price`, `Photo`)
+VALUES ('Snacks', 'Chips', 15.0, 'chips.jpg');
 
-INSERT INTO PRODUCT (`Category`, `NAME`, `Price`)
-VALUES ('Snacks', 'Nuts', 27.5);
+INSERT INTO PRODUCT (`Category`, `NAME`, `Price`, `Photo`)
+VALUES ('Snacks', 'Nuts', 27.5, 'nuts.avif');
 
-INSERT INTO PRODUCT (`Category`, `NAME`, `Price`)
-VALUES ('Dairy', 'Full-Cream Milk', 17.5);
+INSERT INTO PRODUCT (`Category`, `NAME`, `Price`, `Photo`)
+VALUES ('Dairy', 'Full-Cream Milk', 17.5, 'milk.avif');
 
-INSERT INTO PRODUCT (`Category`, `NAME`, `Price`)
-VALUES ('Dairy', 'Creamy Cheese', 25.0);
+INSERT INTO PRODUCT (`Category`, `NAME`, `Price`, `Photo`)
+VALUES ('Dairy', 'Creamy Cheese', 25.0, 'cheese.webp');
 
-INSERT INTO PRODUCT (`Category`, `NAME`, `Price`)
-VALUES ('Meat', 'Steak', 200.50);
+INSERT INTO PRODUCT (`Category`, `NAME`, `Price`, `Photo`)
+VALUES ('Meat', 'Steak', 200.50, 'beef.avif');
 
-INSERT INTO PRODUCT (`Category`, `NAME`, `Price`)
-VALUES ('Poultry', 'Chicken Fajita', 175.50);
+INSERT INTO PRODUCT (`Category`, `NAME`, `Price`, `Photo`)
+VALUES ('Poultry', 'Chicken Fajita', 175.50, 'chicken.avif');
 
 INSERT INTO ADMIN (`NAME`,`USERID`,`PASSWORD`)
 VALUES ('admin user','admin','admin@123')

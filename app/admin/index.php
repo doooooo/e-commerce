@@ -34,7 +34,7 @@
       </div>
     </section>
 <dialog id="editDialog">
-        <form method="post" action="index.php">
+        <form method="post" action="index.php" enctype="multipart/form-data">
             <input type="hidden" name="id"/>
             <table>
                 <tr><td></td><td><h2>Edit Product</h2></td></tr>
@@ -57,10 +57,22 @@
 //insert product
 if(isset($_POST["add"])) 
 { 
+    if (isset($_FILES['image'])) {
+        $target_dir = "/var/www/html/admin/images/";
+        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+            $photo=htmlspecialchars(basename($_FILES["image"]["name"]));
+            echo "file uploaded";
+        } else {
+            $photo='';
+            echo "file upload failed";
+        }
+    }
+
 	$name = $_POST["name"]; 
 	$category = $_POST["category"];
 	$price = $_POST["price"]; 
-	$insertsql = "INSERT INTO PRODUCT (`Category`, `NAME`, `Price`) VALUES ('$category', '$name', $price);";
+	$insertsql = "INSERT INTO PRODUCT (`Category`, `NAME`, `Price`, `Photo`) VALUES ('$category', '$name', $price,'$photo');";
 	$retinsert = mysqli_query ($conn, $insertsql);
 
 	if(! $retinsert )
@@ -89,8 +101,8 @@ if(isset($_GET["delid"])) {
 
 	if(! $retdel )
 		echo ("Error deleting product" . mysqli_error($conn));
-    else
-        echo "Product deleted successfuly";
+    // else
+        // echo "Product deleted successfuly";
 
 
 }
@@ -120,7 +132,7 @@ if(mysqli_num_rows($ret) > 0)
 		// echo "</ul></div>";
 
         echo "<div class='card'>
-          <img src=''/>
+          <img src='images/".$row['Photo']."'/>
           <h2>". $row['NAME']."</h2>
           <p>". $row['Price']."$</p>
           <a href='#' class='edit' onclick=\"onEditProduct(".$row['ID'].", event)\">Edit</a>

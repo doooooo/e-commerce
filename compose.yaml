@@ -20,6 +20,7 @@ services:
       - 82:80
     volumes:
       - ./app:/var/www/html/
+      - ./app/admin/images:/var/www/html/admin/images
     depends_on:
       - testdb
     # restart: always
