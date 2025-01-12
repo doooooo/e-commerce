@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
 </head>
 <body>
 <section>
       <div class="navbar flex">
-        <div></div>
+        <h2>Admin Portal</h2>
         <div class="flex nav-options">
-          <p><a class="menu" href="index.html">All Products</a></p>
+          <p><a class="menu" href="index.php">All Products</a></p>
           <p><a class="menu" href="new_product.html">Add Product</a></p>
-          <p>option</p>
-          <p>option</p>
         </div>
-        <div class="flex cart">
-          <p>Cart</p>
-          <i class="fa-solid fa-cart-shopping"></i>
+        <div></div>
+      </div>
+    </section>
+    <section>
+      <div id="sidebar" class="sidebar hide-sidebar">
+        <h1>Categories:</h1>
+        <ul class="list">
+          <li><a class='category' href='index.php?category=Candy'>Candy</a></li>
+          <li><a class='category' href='index.php?category=Snacks'>Snacks</a></li>
+          <li><a class='category' href='index.php?category=Dairy'>Dairy</a></li>
+          <li><a class='category' href='index.php?category=Meat'>Meat</a></li>
+          <li><a class='category' href='index.php?category=Poultry'>Poultry</a></li>
+          <li><a class='category' href='index.php'>&lt;&lt;Clear filter&gt;&gt;</a></li>
+        </ul>
+        <div class="toggle flex" onclick="hideSidebar()">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i>
         </div>
       </div>
     </section>
@@ -24,21 +38,22 @@
             <input type="hidden" name="id"/>
             <table>
                 <tr><td></td><td><h2>Edit Product</h2></td></tr>
-                <tr><td>Name</td><td><input type="text" name="name"/></td></tr>
-                <tr><td>Category</td><td><select name="category">
+                <tr><td><span>Name</span></td><td><input type="text" name="name"/></td></tr>
+                <tr><td><span>Category</span></td><td><select name="category">
                     <option value="Candy">Candy</option>
                     <option value="Snacks">Snacks</option>
+                    <option value="Dairy">Dairy</option>
                     <option value="Poultry">Poultry</option>
                     <option value="Meat">Meat</option>
                 </select></td></tr>
-                <tr><td>Price</td><td><input type="number" name="price" min="0" step="any"/></td></tr>
-                <tr><td>Image</td><td><input type="file" name="image"/></td></tr>
-                <tr><td><input type="submit" name="edit" value="Ok"/></td><td><button id="closePopup" onclick="closePopup(e)">Close</button></td></tr>
+                <tr><td><span>Price</span></td><td><input type="number" name="price" min="0" step="any"/></td></tr>
+                <tr><td><span>Image</span></td><td><input type="file" name="image"/></td></tr>
+                <tr><td></td><td><input type="submit" class="submit-button" name="edit" value="Ok"/><button id="closePopup" class="submit-button" onclick="closePopup(e)">Close</button></td></tr>
                 <tr><td></td><td></td></tr>
             </table>
         </form>
 </dialog>
-<?php include '../connect.php';
+<?php include 'connect.php';
 //insert product
 if(isset($_POST["add"])) 
 { 
@@ -83,7 +98,7 @@ if(isset($_GET["delid"])) {
 if(isset($_GET["category"])) {
     $category = $_GET["category"];
     $sql="SELECT * FROM PRODUCT where CATEGORY like '$category'";
-	echo "<div class='filter'><a class='clear' href='index.php'>&gt;&gt;Clear all filters</a></div>";
+	//echo "<div class='filter'><a class='clear' href='index.php'>&gt;&gt;Clear all filters</a></div>";
 }
 else{
     $sql="SELECT * FROM PRODUCT";
@@ -91,21 +106,29 @@ else{
 $ret = mysqli_query ($conn, $sql);
 if(mysqli_num_rows($ret) > 0)
 {
-    echo "<div class='container'>";
+    echo "<section><div class='container'>";
 	// echo "<ul>";
 	while($row=mysqli_fetch_assoc($ret))
 	{
 		#echo "EMP ID: {$row['id']}<br/> ". "EMP NAME: {$row['id']}<br/>". "EMP salary: {$row['salary']}<br/>";
-		echo "<div class='card'> <ul>";
-        echo "<li><span>". $row['NAME']."</span></li>";
-		echo "<li><span>". $row['Price']."</span></li>";
-		echo "<li><a class='category' href='index.php?category=".$row['Category']."'>".$row['Category']."</a></li>";
-        echo "<li><a href='#' class='edit' onclick=\"onEditProduct(".$row['ID'].", event)\">Edit</a></li>";
-		echo "<li><a class='delete' href='index.php?delid=".$row['ID']."' onclick='onDeleteProduct(event)'>Delete</a></li>";
-		echo "</ul></div>";
+		// echo "<div class='card'> <ul>";
+        // echo "<li><span>". $row['NAME']."</span></li>";
+		// echo "<li><span>". $row['Price']."</span></li>";
+		// echo "<li><a class='category' href='index.php?category=".$row['Category']."'>".$row['Category']."</a></li>";
+        // echo "<li><a href='#' class='edit' onclick=\"onEditProduct(".$row['ID'].", event)\">Edit</a></li>";
+		// echo "<li><a class='delete' href='index.php?delid=".$row['ID']."' onclick='onDeleteProduct(event)'>Delete</a></li>";
+		// echo "</ul></div>";
+
+        echo "<div class='card'>
+          <img src=''/>
+          <h2>". $row['NAME']."</h2>
+          <p>". $row['Price']."$</p>
+          <a href='#' class='edit' onclick=\"onEditProduct(".$row['ID'].", event)\">Edit</a>
+          <a class='delete' href='index.php?delid=".$row['ID']."' onclick='onDeleteProduct(event)'>Delete</a>
+        </div>";
 	}
 	// echo "</ul>";
-    echo "</div>";
+    echo "</div></section>";
 	
 }
 else echo "0 results found";

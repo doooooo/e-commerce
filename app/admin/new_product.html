@@ -1,27 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<div class="container">
-	<form method="post" action="index.php">
-	<table>
-		<tr><td></td><td><h2>Add Product</h2></td></tr>
-		<tr><td>Name</td><td><input type="text" name="name"/></td></tr>
-		<tr><td>Category</td><td><select name="category">
-			<option value="Candy">Candy</option>
-			<option value="Snacks">Snacks</option>
-			<option value="Poultry">Poultry</option>
-			<option value="Meat">Meat</option>
-		</select></td></tr>
-		<tr><td>Price</td><td><input type="number" name="price" min="0" step="any"/></td></tr>
-		<tr><td>Image</td><td><input type="file" name="image"/></td></tr>
-		<tr><td></td><td><input type="submit" name="add" value="Add"/></td></tr>
-		<tr><td></td><td></td></tr>
-		<tr><td></td><td><a class="back" href="index.php">&lt;&lt;Back</a></td></tr>
-	</table>
-</form>
-</div>
+	<section>
+		<div class="navbar flex">
+			<h2>Admin Portal</h2>
+		  <div class="flex nav-options">
+			<p><a class="menu" href="index.php">All Products</a></p>
+			<p><a class="menu" href="new_product.html">Add Product</a></p>
+		  </div>
+		  <div></div>
+		</div>
+	  </section>
+	  <section>
+		<div class="container">
+		<form method="post" action="index.php">
+		<table>
+			<tr><td></td><td><h2>New Product</h2></td></tr>
+			<tr><td><span>Name</span></td><td><input type="text" name="name"/></td></tr>
+			<tr><td><span>Category</span></td><td><select name="category">
+				<option value="Candy">Candy</option>
+				<option value="Snacks">Snacks</option>
+				<option value="Dairy">Dairy</option>
+				<option value="Poultry">Poultry</option>
+				<option value="Meat">Meat</option>
+			</select></td></tr>
+			<tr><td><span>Price</span></td><td><input type="number" name="price" min="0" step="any"/></td></tr>
+			<tr><td><span>Image</span></td><td><input type="file" name="image"/></td></tr>
+			<tr><td></td><td><input class="submit-button" type="submit" name="add" value="Add"/></td></tr>
+			<tr><td></td><td></td></tr>
+			<tr><td></td><td></td></tr>
+		</table>
+	</form>
+	</div>
+</section>
 </body>
 </html>

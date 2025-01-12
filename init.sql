@@ -8,7 +8,7 @@ CREATE TABLE PRODUCT (
   `Category` varchar(45) DEFAULT NULL,
   `NAME` varchar(150) DEFAULT NULL,
   `Price` DECIMAL(10,2) NOT NULL,
-  `Photo` varchar(250) DEFAULT NULL
+  `Photo` varchar(250) DEFAULT ''
 );
 
 CREATE TABLE USER (
@@ -43,6 +43,15 @@ VALUES ('Candy', 'Choco 2', 20.5);
 
 INSERT INTO PRODUCT (`Category`, `NAME`, `Price`)
 VALUES ('Snacks', 'Chips', 15.0);
+
+INSERT INTO PRODUCT (`Category`, `NAME`, `Price`)
+VALUES ('Snacks', 'Nuts', 27.5);
+
+INSERT INTO PRODUCT (`Category`, `NAME`, `Price`)
+VALUES ('Dairy', 'Full-Cream Milk', 17.5);
+
+INSERT INTO PRODUCT (`Category`, `NAME`, `Price`)
+VALUES ('Dairy', 'Creamy Cheese', 25.0);
 
 INSERT INTO PRODUCT (`Category`, `NAME`, `Price`)
 VALUES ('Meat', 'Steak', 200.50);

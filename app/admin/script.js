@@ -36,3 +36,9 @@ function closePopup(e)
     const editDialog = document.getElementById('editDialog');
     editDialog.close();    
 }
+
+function hideSidebar()
+{
+    const sidebar=document.getElementById("sidebar");
+    sidebar.classList.toggle("hide-sidebar");
+}
