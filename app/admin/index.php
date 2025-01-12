@@ -4,10 +4,21 @@
 	<link rel="stylesheet" href="../style.css">
 </head>
 <body>
-<h1>My first PHP page</h1>
-<div class="topnav">
-  <a class="menu" href="new_product.html">Add Product</a>
-</div>
+<section>
+      <div class="navbar flex">
+        <div></div>
+        <div class="flex nav-options">
+          <p><a class="menu" href="index.html">All Products</a></p>
+          <p><a class="menu" href="new_product.html">Add Product</a></p>
+          <p>option</p>
+          <p>option</p>
+        </div>
+        <div class="flex cart">
+          <p>Cart</p>
+          <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+      </div>
+    </section>
 <dialog id="editDialog">
         <form method="post" action="index.php">
             <input type="hidden" name="id"/>
