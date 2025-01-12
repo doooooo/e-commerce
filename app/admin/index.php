@@ -8,6 +8,25 @@
 <div class="topnav">
   <a class="menu" href="new_product.html">Add Product</a>
 </div>
+<dialog id="editDialog">
+        <form method="post" action="index.php">
+            <input type="hidden" name="id"/>
+            <table>
+                <tr><td></td><td><h2>Edit Product</h2></td></tr>
+                <tr><td>Name</td><td><input type="text" name="name"/></td></tr>
+                <tr><td>Category</td><td><select name="category">
+                    <option value="Candy">Candy</option>
+                    <option value="Snacks">Snacks</option>
+                    <option value="Poultry">Poultry</option>
+                    <option value="Meat">Meat</option>
+                </select></td></tr>
+                <tr><td>Price</td><td><input type="number" name="price" min="0" step="any"/></td></tr>
+                <tr><td>Image</td><td><input type="file" name="image"/></td></tr>
+                <tr><td><input type="submit" name="edit" value="Ok"/></td><td><button id="closePopup" onclick="closePopup(e)">Close</button></td></tr>
+                <tr><td></td><td></td></tr>
+            </table>
+        </form>
+</dialog>
 <?php include '../connect.php';
 //insert product
 if(isset($_POST["add"])) 
@@ -20,6 +39,33 @@ if(isset($_POST["add"]))
 
 	if(! $retinsert )
 		echo ("Error adding product" . mysqli_error($conn));
+
+}
+//edit product
+if(isset($_POST["edit"])) 
+{ 
+    $id = $_POST["id"]; 
+	$name = $_POST["name"]; 
+	$category = $_POST["category"];
+	$price = $_POST["price"]; 
+	$editsql = "UPDATE PRODUCT SET Category = '$category', NAME = '$name', Price = $price where ID = $id";
+	$retedit = mysqli_query ($conn, $editsql);
+
+	if(! $retedit )
+		echo ("Error editing product" . mysqli_error($conn));
+
+}
+//delete product
+if(isset($_GET["delid"])) {
+    $id = $_GET["delid"];
+    $delsql="DELETE FROM PRODUCT where ID = $id";
+    $retdel = mysqli_query ($conn, $delsql);
+
+	if(! $retdel )
+		echo ("Error deleting product" . mysqli_error($conn));
+    else
+        echo "Product deleted successfuly";
+
 
 }
 //display all products
@@ -43,7 +89,8 @@ if(mysqli_num_rows($ret) > 0)
         echo "<li><span>". $row['NAME']."</span></li>";
 		echo "<li><span>". $row['Price']."</span></li>";
 		echo "<li><a class='category' href='index.php?category=".$row['Category']."'>".$row['Category']."</a></li>";
-		echo "<li><a class='delete' href='index.php?delid=".$row['ID']."'>Delete</a></li>";
+        echo "<li><a href='#' class='edit' onclick=\"onEditProduct(".$row['ID'].", event)\">Edit</a></li>";
+		echo "<li><a class='delete' href='index.php?delid=".$row['ID']."' onclick='onDeleteProduct(event)'>Delete</a></li>";
 		echo "</ul></div>";
 	}
 	// echo "</ul>";
@@ -55,6 +102,6 @@ else echo "0 results found";
 mysqli_free_result($ret);
 mysqli_close($conn);
 ?>
-
+<script src="script.js"></script>
 </body>
 </html>

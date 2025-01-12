@@ -41,6 +41,15 @@
     text-decoration: none;
 }
 
+.edit{
+    border: none;
+    margin: 0px 10px 0px 10px;
+    padding: 5px 20px 5px 20px;
+    background-color: cadetblue;
+    color: white;
+    text-decoration: none;
+}
+
 .back{
     margin-left: auto;
     text-align: right;
@@ -86,4 +95,10 @@ li{
     color: rgb(32, 27, 67);
     font-weight: bold;
     text-decoration: none;
+}
+dialog {
+    border: solid 2px red;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding: 20px;
 }
