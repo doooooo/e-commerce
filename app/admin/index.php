@@ -57,21 +57,21 @@
 //insert product
 if(isset($_POST["add"])) 
 { 
+    $name = $_POST["name"]; 
+	$category = $_POST["category"];
+	$price = $_POST["price"]; 
+    $photo = '';
+    //if photo is uploaded
     if (isset($_FILES['image'])) {
         $target_dir = "/var/www/html/admin/images/";
         $target_file = $target_dir . basename($_FILES["image"]["name"]);
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
             $photo=htmlspecialchars(basename($_FILES["image"]["name"]));
-            echo "file uploaded";
         } else {
             $photo='';
-            echo "file upload failed";
         }
     }
 
-	$name = $_POST["name"]; 
-	$category = $_POST["category"];
-	$price = $_POST["price"]; 
 	$insertsql = "INSERT INTO PRODUCT (`Category`, `NAME`, `Price`, `Photo`) VALUES ('$category', '$name', $price,'$photo');";
 	$retinsert = mysqli_query ($conn, $insertsql);
 
@@ -86,7 +86,18 @@ if(isset($_POST["edit"]))
 	$name = $_POST["name"]; 
 	$category = $_POST["category"];
 	$price = $_POST["price"]; 
-	$editsql = "UPDATE PRODUCT SET Category = '$category', NAME = '$name', Price = $price where ID = $id";
+    $photo = '';
+    //if photo is uploaded
+    if (isset($_FILES['image'])) {
+        $target_dir = "/var/www/html/admin/images/";
+        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+            $photo=htmlspecialchars(basename($_FILES["image"]["name"]));
+        } else {
+            $photo='';
+        }
+    }
+	$editsql = "UPDATE PRODUCT SET Category = '$category', NAME = '$name', Price = $price, Photo = '$photo' where ID = $id";
 	$retedit = mysqli_query ($conn, $editsql);
 
 	if(! $retedit )
