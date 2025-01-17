@@ -1,0 +1,356 @@
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #ebdbdb;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffd700;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    height: 10vh;
+    background: linear-gradient(180deg, rgb(244, 97, 97) 0%, rgb(167, 26, 26) 50%, rgba(244, 97, 97) 100%);
+    color: #fff;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-options p {
+    margin: 0 15px;
+    font-size: 1.2rem;
+}
+
+.nav-options p a {
+    color: white;
+}
+
+.cart {
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+}
+
+.cart i {
+    margin-left: 10px;
+    font-size: 1.5rem;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('hero-background.jpg'); /* استبدل بـ URL لصورة الخلفية */
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.hero-content .add {
+    border-radius: 20px;
+    background-color: rgb(167, 26, 26);
+    padding: 15px 30px;
+    color: #fff;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.hero-content .add:hover {
+    background-color: rgb(244, 97, 97);
+    filter: brightness(90%);
+}
+
+/* Container and Cards */
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card {
+    width: 300px;
+    height: 400px;
+    background-color: #eee7e7;
+    box-shadow: 5px 5px 5px #888888;
+    border-radius: 20%;
+    text-align: center;
+    margin: 30px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    filter: brightness(90%);
+}
+
+.card img {
+    width: 250px;
+    height: 250px;
+    border-radius: 20%;
+   /* margin-bottom: 20px;*/
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    color: #842929;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: rgb(53, 173, 61);
+    margin-bottom: 20px;
+}
+
+.add {
+    border-radius: 20px;
+    background-color: rgb(167, 26, 26); /* اللون الأساسي */
+    padding: 10px 20px; /* حجم الزر */
+    color: #fff;
+    border: 1px solid #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, filter 0.3s ease; /* انتقال سلس للخصائص */
+}
+
+.add:hover {
+    background-color: rgb(244, 97, 97); /* تغيير لون الخلفية عند التحويم */
+    filter: brightness(90%); /* تأثير التعتيم */
+}
+
+form {
+    display: inline; /* يجعل النموذج بنفس حجم الزر */
+    margin: 0; /* يزيل أي هوامش إضافية */
+    padding: 0; /* يزيل أي مسافات داخلية */
+}
+
+/* Cart Section */
+.cart-container {
+    margin-top: 30px;
+    width: 80%;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.cart-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: rgb(167, 26, 26);
+    text-align: center;
+}
+
+.cart-items {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    background-color: #eee7e7;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 5px 5px 5px #888888;
+    border-radius: 20%;
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.cart-item h3 {
+    font-size: 1.3rem;
+    color: #842929;
+    margin-bottom: 5px;
+}
+
+.cart-item p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+.success-message {
+    color: green;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.error-message {
+    color: red;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.cart-item .remove-button {
+    margin-left: auto;
+    padding: 5px 15px;
+    border-radius: 10px;
+    background-color: rgb(167, 26, 26);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cart-item .remove-button:hover {
+    background-color: rgb(244, 97, 97);
+    filter: brightness(90%);
+}
+
+/* Cart Summary */
+.cart-summary {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #842929;
+    margin-top: 10px;
+}
+
+.checkout-button {
+    background-color: rgb(167, 26, 26);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.checkout-button:hover {
+    background-color: rgb(244, 97, 97);
+}
+.view-history-button {
+    display: inline-block;
+    background-color: rgb(167, 26, 26);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.view-history-button:hover {
+    background-color: #a83e3e;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 17vw;
+    background: linear-gradient(90deg, rgb(86, 80, 80) 0%, rgb(43, 27, 27) 50%, rgb(25, 5, 5) 100%);
+    color: #fff;
+    height: 80vh;
+    position: fixed;
+    border-radius: 0 10px 10px 0;
+    transition: all 2s linear;
+  }
+  
+  .sidebar h1 {
+    padding: 15px;
+    margin: 30px 0;
+}
+  
+.hide-sidebar {
+    left: -260px;
+    transition: all 2s linear;
+  }
+  
+  .sidebar .toggle {
+    position: absolute;
+    top: 50%;
+    right: -50px;
+    background-color: rgb(25, 5, 5);
+    width: 50px;
+    height: 50px;
+    border-radius: 0px 30px 30px 0px;
+    font-size: 2rem;
+  }
+  
+
+.list {
+    width: 80%;
+    height: 60%;
+    margin: auto;
+    text-align: center;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.toggle {
+    position: absolute;
+    top: 50%;
+    right: -50px;
+    background-color: rgb(25, 5, 5);
+    width: 50px;
+    height: 50px;
+    border-radius: 0px 30px 30px 0px;
+    font-size: 2rem;
+}
+
+.purchase-history{
+    margin: auto;
+    margin-top: 20px;
+}
+
+.purchase-history-btn{
+    margin: auto;
+    padding: 10px;
+    background-color: #842929;
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+    border-radius: 10px;
+}

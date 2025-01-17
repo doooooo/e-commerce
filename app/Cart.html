@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar flex">
+        <div></div>
+        <div class="flex nav-options">
+            <p><a href="index.html">Home</a></p>
+            <p><a href="products.html">Products</a></p>
+            <p><a href="Register.html">Register</a></p>
+            <p><a href="login.html">Login</a></p>
+        </div>
+        <div class="flex cart">
+           <p>
+            <a href="cart.php">Cart</a>
+            <i class="fa-solid fa-cart-shopping"></i>
+        </p>
+        </div>
+    </div>
+
+    <!-- Cart Section -->
+    <section class="container cart-container">
+        <h2 class="cart-title">Your Cart</h2>
+        <form action="update-cart.php" method="POST" class="cart-form">
+            <div class="cart-items flex">
+                <!-- Cart Item 1 -->
+                <div class="card cart-item">
+                    <img src="product1.jpg" alt="Product">
+                    <div>
+                        <h3>Product 1</h3>
+                        <p>Price: $50</p>
+                        <p>Quantity: 1</p>
+                    </div>
+                    <button type="submit" name="removeItem" value="Product 1" class="remove-button">Remove</button>
+                </div>
+                <!-- Cart Item 2 -->
+                <div class="card cart-item">
+                    <img src="product2.jpg" alt="Product">
+                    <div>
+                        <h3>Product 2</h3>
+                        <p>Price: $30</p>
+                        <p>Quantity: 2</p>
+                    </div>
+                    <button type="submit" name="removeItem" value="Product 2" class="remove-button">Remove</button>
+                </div>
+            </div>
+            <!-- Cart Summary -->
+            <div class="cart-summary">
+                <h3>Total: $110</h3>
+                <form action="checkout.php" method="POST">
+                    <button type="submit" class="add checkout-button">Checkout</button>
+                </form>
+                <a href="purchases-history.html" class="view-history-button">View Purchases History</a>
+            </div>
+        </form>
+    </section>
+</body>
+</html>

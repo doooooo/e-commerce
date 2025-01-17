@@ -18,13 +18,19 @@ CREATE TABLE USER (
   `PASSWORD` varchar(100) NOT NULL
 );
 
+CREATE TABLE cart(
+  `product_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `quantity` int NOT NULL
+);
+
 CREATE TABLE PURCHASES (
   `ID` int NOT NULL AUTO_INCREMENT primary key,
   `USERID` int NOT NULL,
   `PRODUCTID` int NOT NULL,
   `Date` DATETIME DEFAULT NULL,
   `Qty` int NOT NULL,
-  `Price` DECIMAL(10,2) NOT NULL,
+  `Price` DECIMAL(10,2) DEFAULT NULL,
   `IS_CART` BOOLEAN DEFAULT FALSE
 );
 
@@ -36,28 +42,28 @@ CREATE TABLE ADMIN (
 );
 
 INSERT INTO PRODUCT (`Category`, `NAME`, `Price`, `Photo`)
-VALUES ('Candy', 'Choco 1', 12.4, 'choco1.avif');
+VALUES ('Dresses', 'Dress 1', 1250, 'Dress1.jpeg');
 
 INSERT INTO PRODUCT (`Category`, `NAME`, `Price`, `Photo`)
-VALUES ('Candy', 'Choco 2', 20.5, 'choco2.avif');
+VALUES ('Dresses', 'Dress 2', 5000, 'Dress2.jpg');
 
 INSERT INTO PRODUCT (`Category`, `NAME`, `Price`, `Photo`)
-VALUES ('Snacks', 'Chips', 15.0, 'chips.jpg');
+VALUES ('Dresses', 'Dress 3', 4500, 'Dress3.avif');
 
 INSERT INTO PRODUCT (`Category`, `NAME`, `Price`, `Photo`)
-VALUES ('Snacks', 'Nuts', 27.5, 'nuts.avif');
+VALUES ('Pants', 'Pant 1', 500.25, 'Pant1.avif');
 
 INSERT INTO PRODUCT (`Category`, `NAME`, `Price`, `Photo`)
-VALUES ('Dairy', 'Full-Cream Milk', 17.5, 'milk.avif');
+VALUES ('Pants', 'Pant 2', 750, 'Pant2.avif');
 
 INSERT INTO PRODUCT (`Category`, `NAME`, `Price`, `Photo`)
-VALUES ('Dairy', 'Creamy Cheese', 25.0, 'cheese.webp');
+VALUES ('Veil', 'Scarf 1', 500.0, 'Scarf1.jpg');
 
 INSERT INTO PRODUCT (`Category`, `NAME`, `Price`, `Photo`)
-VALUES ('Meat', 'Steak', 200.50, 'beef.avif');
+VALUES ('Veil', 'Scarf 2', 200.50, 'Scarf2.jpg');
 
 INSERT INTO PRODUCT (`Category`, `NAME`, `Price`, `Photo`)
-VALUES ('Poultry', 'Chicken Fajita', 175.50, 'chicken.avif');
+VALUES ('Skirts', 'Skirt 1', 350.50, 'Skirt1.webp');
 
 INSERT INTO ADMIN (`NAME`,`USERID`,`PASSWORD`)
 VALUES ('admin user','admin','admin@123')

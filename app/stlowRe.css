@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #ebdbdb;
+    margin: 0;
+    padding: 0;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.auth-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #842929;
+}
+
+.auth-message {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.auth-message.success {
+    background: #d4edda;
+    color: #155724;
+}
+
+.auth-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.auth-form label {
+    text-align: left;
+    font-weight: bold;
+    color: #555;
+}
+
+.auth-form input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.auth-form input[type="email"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.auth-form input:focus {
+    border-color: #842929;
+    box-shadow: 0 0 5px rgba(132, 41, 41, 0.5);
+    outline: none;
+}
+
+.auth-button {
+    padding: 10px;
+    background: #842929;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.auth-button:hover {
+    background: #5a1c1c;
+}
+
+/* تخصيص الأزرار */
+.auth-button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(167, 26, 26);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+    background-color: rgb(244, 97, 97);
+}
+
+/* تنسيق خاص لزر Logout */
+.auth-footer {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center;
+}
+
+.auth-footer a {
+    color: rgb(167, 26, 26);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth-footer a:hover {
+    color: rgb(244, 97, 97);
+    text-decoration: underline;
+}

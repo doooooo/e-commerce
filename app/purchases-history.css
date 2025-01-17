@@ -1,0 +1,70 @@
+/* تنسيق صفحة تاريخ المشتريات */
+.history-container {
+    padding: 20px;
+    max-width: 900px;
+    margin: 50px auto;
+    background-color:#ebdbdb;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.history-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #842929;
+}
+
+/* تنسيق الجدول */
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.history-table th,
+.history-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #cdcbcb;
+}
+
+.history-table th {
+    background-color: #ebebfa;
+    color: #842929;
+}
+
+.history-table td {
+    background-color: #fafafa;
+}
+
+.reorder-button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.reorder-button:hover {
+    background-color: #218838;
+}
+
+.back-to-home {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color:rgb(167, 26, 26);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    
+}
+
+.back-to-home:hover {
+    background-color: rgb(244, 97, 97);
+}
