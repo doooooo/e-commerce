@@ -81,8 +81,25 @@ $purchases = $stmt_purchases->get_result();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Purchases History</title>
     <link rel="stylesheet" href="purchases-history.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<section>
+		<div class="navbar flex">
+			<div class="flex">
+				<img class="logo" src="../logo.jpeg"/>
+				<h2>Admin Portal</h2>
+			</div>
+		  <div class="flex nav-options">
+			<p><a class="menu" href="index.php">All Products</a></p>
+			<p><a class="menu" href="new_product.html">Add Product</a></p>
+		  </div>
+		  <div class="flex cart">
+			<a href="login.php?logout=true">
+			  <i style="color:white;margin-right:20px;" class="fa-solid fa-sign-out" aria-hidden="true"></i></a>
+			</div>
+		</div>
+	  </section>
     <div class="history-container">
         <h2 class="history-title">Your Purchases History</h2>
         <table class="history-table">
@@ -117,7 +134,9 @@ $purchases = $stmt_purchases->get_result();
             </tbody>
         </table>
     </div>
-    <a href="index.php" class="back-to-home">Back to Home</a>
+    <div>
+        <a href="index.php" class="back-to-home">Back to Home</a>
+    </div>
 </body>
 </html>
 

@@ -70,7 +70,17 @@ $total_price = 0;
     <!-- Cart Section -->
     <section class="container cart-container">
         <h2 class="cart-title">Your Cart</h2>
-        <form id="cart-form" class="cart-form">
+        <form id="cart-form" class="cart-form" action="checkout.php" method="POST">
+             <div class="cart-items flex" style="margin-top: 10px;">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                  
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="phone" name="phone" required>
+                  
+                    <label for="addr">Address:</label>
+                    <textarea name="addr" required></textarea>
+                </div>
             <div class="cart-items flex">
                 <?php if ($cart_items->num_rows > 0): ?>
                     <?php while ($item = $cart_items->fetch_assoc()): ?>
@@ -101,7 +111,8 @@ $total_price = 0;
             <div class="purchase-history">
                 <!-- إظهار رابط "View Purchase History" إذا كان المستخدم قد سجل الدخول -->
                 <?php if (isset($_SESSION['user_email'])): ?>
-                    <a href="checkout.php" class="purchase-history-btn">Checkout</a>
+                    <!-- <a href="checkout.php" class="purchase-history-btn">Checkout</a> -->
+                    <button type="submit" class="purchase-history-btn">Checkout</button>
                     <a href="purchase-history.php" class="purchase-history-btn">View Purchase History</a>
                 <?php else: ?>
                     <p>Please <a href="login.php">login</a> to view your purchase history.</p>

@@ -15,7 +15,10 @@ CREATE TABLE USER (
   `ID` int NOT NULL AUTO_INCREMENT primary key,
   `NAME` varchar(200) NOT NULL,
   `USERID` varchar(100) NOT NULL,
-  `PASSWORD` varchar(100) NOT NULL
+  `PASSWORD` varchar(100) NOT NULL,
+  `PHONE` varchar(100) DEFAULT NULL,
+  `ADDRESS` varchar(500) DEFAULT NULL,
+  `FULLNAME` varchar(100) DEFAULT NULL
 );
 
 CREATE TABLE cart(

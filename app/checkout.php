@@ -19,6 +19,17 @@ while ($item = $cart_items->fetch_assoc()) {
     $total_price += $item['Price'] * $item['quantity'];
 }
 
+//Complete user info
+if (isset($_POST['phone']) && isset($_POST['addr'])) {
+    $phone=$_POST['phone'];
+    $addr=$_POST['addr'];
+    $fullname=$_POST['name'];
+    $sql = "UPDATE USER SET PHONE=?, ADDRESS = ?, FULLNAME = ? WHERE ID = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("iiid", $phone,$addr,$fullname,$user_id);
+    $stmt->execute();
+}
+
 // Add the order to the orders table
 // $sql = "INSERT INTO orders (user_id, total_price) VALUES (?, ?)";
 // $stmt = $conn->prepare($sql);
@@ -45,12 +56,12 @@ $stmt->execute();
 
 if (!$stmt->execute()) {
     $msg="Error in Checkout";
-    $link="<br><a href='index.php'>Back to Home</a>";
+    $link="<br><a href='index.php' class='purchase-history-btn'>Back to Home</a>";
 }
 
 else{
     $msg="Checkout completed successfully!";
-    $link="<br><a href='purchase-history.php'>View purchases history</a>";
+    $link="<br><a href='purchase-history.php' class='purchase-history-btn'>View purchases history</a>";
 }
 
 // echo "Checkout completed successfully!";
@@ -69,6 +80,7 @@ $conn->close();
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
     <title>Home</title>
+    <link rel="stylesheet" href="stlowRe.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -89,10 +101,11 @@ $conn->close();
     </div>
     <section>
       <div class="flex">
-            <div style="margin: auto;margin-top: 30px;">
+        <div class="auth-container">
                 <br>
                 <?php 
                 echo $msg;
+                echo '<br>';
                 echo $link;
                 ?>
             </div>
