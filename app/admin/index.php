@@ -17,7 +17,10 @@ if (!isset($_SESSION['admin_id'])) {
 <body>
 <section>
       <div class="navbar flex">
-        <h2>Admin Portal</h2>
+        <div class="flex">
+            <img class="logo" src="../logo.jpeg"/>
+            <h2>Admin Portal</h2>
+        </div>
         <div class="flex nav-options">
           <p><a class="menu" href="index.php">All Products</a></p>
           <p><a class="menu" href="new_product.html">Add Product</a></p>

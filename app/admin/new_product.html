@@ -2,16 +2,25 @@
 <html>
 <head>
 	<link rel="stylesheet" href="style.css">
+	<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
 </head>
 <body>
 	<section>
 		<div class="navbar flex">
-			<h2>Admin Portal</h2>
+			<div class="flex">
+				<img class="logo" src="../logo.jpeg"/>
+				<h2>Admin Portal</h2>
+			</div>
 		  <div class="flex nav-options">
 			<p><a class="menu" href="index.php">All Products</a></p>
 			<p><a class="menu" href="new_product.html">Add Product</a></p>
 		  </div>
-		  <div></div>
+		  <div class="flex cart">
+			<a href="login.php?logout=true">
+			  <i style="color:white;margin-right:20px;" class="fa-solid fa-sign-out" aria-hidden="true"></i></a>
+			</div>
 		</div>
 	  </section>
 	  <section>

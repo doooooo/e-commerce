@@ -43,13 +43,16 @@ $total_price = 0;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
     <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <!-- Navbar -->
     <div class="navbar flex">
-        <div></div>
+        <div><img class="logo" src="logo.jpeg"/></div>
         <div class="flex nav-options">
             <p><a href="index.php">Home</a></p>
             <p><a href="products.php">Products</a></p>

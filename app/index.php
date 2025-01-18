@@ -35,7 +35,7 @@ $products = [];
 <body>
     <!-- Navbar -->
     <div class="navbar flex">
-      <div></div>
+      <div><img class="logo" src="logo.jpeg"/></div>
       <div class="flex nav-options">
         <p><a href="index.php">Home</a></p>
         <p><a href="products.php">Products</a></p>
@@ -72,9 +72,9 @@ $products = [];
     </div>
 
     <!-- Main Content -->
-    <section>
+    <!-- <section>
         <div class="hero"></div>
-    </section>
+    </section> -->
 
     <!-- Product Highlights -->
     <section>
