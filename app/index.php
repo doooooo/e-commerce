@@ -38,7 +38,6 @@ $products = [];
       <div><img class="logo" src="logo.jpeg"/></div>
       <div class="flex nav-options">
         <p><a href="index.php">Home</a></p>
-        <p><a href="products.php">Products</a></p>
         <p><a href="Register.php">Register</a></p>
         <?php if (isset($_SESSION['user_id'])): ?>
             <p><a href="logout.php">Logout</a></p>

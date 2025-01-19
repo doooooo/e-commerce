@@ -55,9 +55,13 @@ $total_price = 0;
         <div><img class="logo" src="logo.jpeg"/></div>
         <div class="flex nav-options">
             <p><a href="index.php">Home</a></p>
-            <p><a href="products.php">Products</a></p>
+            <p><a href="Register.php">Register</a></p>
             <!-- إزالة رابط "Register.html" هنا -->
-            <p><a href="login.php">Login</a></p>
+            <?php if (isset($_SESSION['user_id'])): ?>
+                <p><a href="logout.php">Logout</a></p>
+            <?php else: ?>
+                <p><a href="login.php">Login</a></p>
+            <?php endif; ?>
         </div>
         <div class="flex cart">
             <p>
@@ -69,29 +73,22 @@ $total_price = 0;
 
     <!-- Cart Section -->
     <section class="container cart-container">
-        <div>
-            <h2 class="cart-title">Your Cart</h2>
-            <table style="margin: 30px">
-                <tr><td><label for="name">Full Name:</label></td><td><input type="text" size="30" id="name" name="name" required></td></tr>
-                <tr></tr>
-                <tr><td><label for="phone">Phone:</label></td><td><input type="text" size="30" id="phone" name="phone" required></td></tr>
-                <tr></tr>
-                <tr><td><label for="addr">Address:</label></td><td><textarea name="addr" cols="30" rows="3" required></textarea></td></tr>
-                <tr><td></td><td></td></tr>
-                <tr><td></td><td></td></tr>
-            </table>
-        </div>
+        
+            <div>
+                <h2 class="cart-title">Your Cart</h2>
+                <table style="margin: 30px">
+                    <tr><td><label for="name">Full Name:</label></td><td><input type="text" size="30" id="name" name="name" required></td></tr>
+                    <tr></tr>
+                    <tr><td><label for="phone">Phone:</label></td><td><input type="text" size="30" id="phone" name="phone" required></td></tr>
+                    <tr></tr>
+                    <tr><td><label for="addr">Address:</label></td><td><textarea name="addr" id="addr" cols="30" rows="3" required></textarea></td></tr>
+                    <tr><td></td><td></td></tr>
+                    <tr><td></td><td></td></tr>
+                </table>
+            </div>
+
         <form id="cart-form" class="cart-form" action="checkout.php" method="POST">
-             <!-- <div class="cart-items flex" style="margin-top: 10px;">
-                    <label for="name">Full Name:</label>
-                    <input type="text" id="name" name="name" required>
-                  
-                    <label for="phone">Phone:</label>
-                    <input type="text" id="phone" name="phone" required>
-                  
-                    <label for="addr">Address:</label>
-                    <textarea name="addr" required></textarea>
-                </div> -->
+            
             <div class="cart-items flex">
                 <?php if ($cart_items->num_rows > 0): ?>
                     <?php while ($item = $cart_items->fetch_assoc()): ?>
@@ -163,6 +160,44 @@ $total_price = 0;
                 });
             });
         });
+
+        //////Form validation///////////////////////
+        const form = document.getElementById("cart-form");
+
+            form.addEventListener("submit", (event) => {
+                // Get form fields
+                const name = document.getElementById("name").value;
+                const phone = document.getElementById("phone").value;
+                const address = document.getElementById("addr").value;
+                let isValid = true;
+                let errorMessage = "";
+                // Validate name
+                if (!name) {
+                    isValid = false;
+                    errorMessage += "Full Name is required.\n";
+                }
+
+                // Validate phone
+                if (phone==='') {
+                    isValid = false;
+                    errorMessage += "Phone is required.\n";
+                } /*else if (!/^\d{10}$/.test(phone)) {
+                    isValid = false;
+                    errorMessage += "Phone must be a 10-digit number.\n";
+                }*/
+
+                // Validate address
+                if (address==='') {
+                    isValid = false;
+                    errorMessage += "Address is required.\n";
+                }
+
+                // Show error message if invalid
+                if (!isValid) {
+                    event.preventDefault(); // Prevent form submission
+                    alert(errorMessage);
+                }
+            });
     </script>
 </body>
 </html>
