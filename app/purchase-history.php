@@ -85,20 +85,23 @@ $purchases = $stmt_purchases->get_result();
 </head>
 <body>
 <section>
-		<div class="navbar flex">
-			<div class="flex">
-				<img class="logo" src="../logo.jpeg"/>
-				<h2>Admin Portal</h2>
-			</div>
-		  <div class="flex nav-options">
-			<p><a class="menu" href="index.php">All Products</a></p>
-			<p><a class="menu" href="new_product.html">Add Product</a></p>
-		  </div>
-		  <div class="flex cart">
-			<a href="login.php?logout=true">
-			  <i style="color:white;margin-right:20px;" class="fa-solid fa-sign-out" aria-hidden="true"></i></a>
-			</div>
-		</div>
+<div class="navbar flex">
+      <div><img class="logo" src="logo.jpeg"/></div>
+        <div class="flex nav-options">
+            <p><a href="index.php">Home</a></p>
+            <p><a href="products.php">Products</a></p>
+            <p><a href="Register.php">Register</a></p>
+            <?php if (isset($_SESSION['user_id'])): ?>
+                <p><a href="logout.php">Logout</a></p>
+            <?php else: ?>
+                <p><a href="login.php">Login</a></p>
+            <?php endif; ?>
+        </div>
+        <div class="flex cart">
+            <p><a href="cart.php">Cart</a></p>
+            <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+        </div>
 	  </section>
     <div class="history-container">
         <h2 class="history-title">Your Purchases History</h2>

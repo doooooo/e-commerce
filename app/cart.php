@@ -69,9 +69,20 @@ $total_price = 0;
 
     <!-- Cart Section -->
     <section class="container cart-container">
-        <h2 class="cart-title">Your Cart</h2>
+        <div>
+            <h2 class="cart-title">Your Cart</h2>
+            <table style="margin: 30px">
+                <tr><td><label for="name">Full Name:</label></td><td><input type="text" size="30" id="name" name="name" required></td></tr>
+                <tr></tr>
+                <tr><td><label for="phone">Phone:</label></td><td><input type="text" size="30" id="phone" name="phone" required></td></tr>
+                <tr></tr>
+                <tr><td><label for="addr">Address:</label></td><td><textarea name="addr" cols="30" rows="3" required></textarea></td></tr>
+                <tr><td></td><td></td></tr>
+                <tr><td></td><td></td></tr>
+            </table>
+        </div>
         <form id="cart-form" class="cart-form" action="checkout.php" method="POST">
-             <div class="cart-items flex" style="margin-top: 10px;">
+             <!-- <div class="cart-items flex" style="margin-top: 10px;">
                     <label for="name">Full Name:</label>
                     <input type="text" id="name" name="name" required>
                   
@@ -80,7 +91,7 @@ $total_price = 0;
                   
                     <label for="addr">Address:</label>
                     <textarea name="addr" required></textarea>
-                </div>
+                </div> -->
             <div class="cart-items flex">
                 <?php if ($cart_items->num_rows > 0): ?>
                     <?php while ($item = $cart_items->fetch_assoc()): ?>
